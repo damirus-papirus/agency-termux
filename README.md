@@ -29,3 +29,13 @@ The launcher installs Python and Git if needed and downloads the upstream projec
 ## Notes
 
 This is a browser/exporter for agent instructions, not an AI model or autonomous agent runtime. To execute an agent's workflow, use its Markdown instructions with a compatible AI tool.
+
+## OpenRouter AI chat
+
+The main menu includes **6. Чат с ИИ (OpenRouter)**. On first launch, the chat asks for an API key. Create one at https://openrouter.ai/keys and paste it into the hidden prompt. The key is saved locally to `~/.config/agency-termux/config.json` (not inside this repository) with restrictive file permissions. You can also set `OPENROUTER_API_KEY` in the environment instead of saving a key.
+
+The default model is `openrouter/free`, which routes requests to eligible free models when available. Free models and limits can change; an API key may still be required. Use `/model` in the chat to enter another model ID from https://openrouter.ai/models?max_price=0, `/reset` to clear conversation history, and `/exit` to return to the menu.
+
+You can optionally choose one Markdown agent before chatting. Its instructions are sent as context to the model. This first version is a chat assistant: it can generate code and suggest file changes, but it does **not** automatically execute shell commands or edit project files.
+
+**Security:** never share your API key or commit it to GitHub. If you suspect a key was exposed, revoke it in the OpenRouter dashboard.
