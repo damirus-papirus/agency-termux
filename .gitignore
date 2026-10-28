@@ -2,3 +2,4 @@ agency-agents/
 exported/
 __pycache__/
 *.pyc
+.env
