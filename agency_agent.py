@@ -5,6 +5,8 @@ import shutil
 import subprocess
 from pathlib import Path
 
+from ai_chat import run_chat
+
 BASE = Path(__file__).resolve().parent
 REPO = BASE / "agency-agents"
 EXPORTS = BASE / "exported"
@@ -170,6 +172,7 @@ def main():
   3. Обновить оригинальный каталог
   4. Экспортированные файлы
   5. Статистика
+  6. Чат с ИИ (OpenRouter)
   0. Выход
 """)
         choice = input("> ").strip()
@@ -190,6 +193,8 @@ def main():
             print(f"Агентов Markdown: {len(all_agents())}")
             print(f"Экспортировано: {len(list(EXPORTS.glob('*.md'))) if EXPORTS.exists() else 0}")
             input("\nНажми Enter...")
+        elif choice == "6":
+            run_chat()
         elif choice == "0":
             break
 
